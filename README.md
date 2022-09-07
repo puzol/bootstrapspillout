@@ -1,6 +1,8 @@
 # bootstrapspillout
 Easy overflow of elements from inside the Boostrap container to the edge of the viewport.
 
+npm i boostrap-spillout
+
 ---Bootstrap Spillout - BSS---
 
 --Thinking outside of the box--
