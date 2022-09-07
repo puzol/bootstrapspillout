@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS Bootstrap-Spillout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="container h-100">
+                <div class="row align-items-center h-100">
+                    <div class="col-12 text-center">
+                        <h1>
+                            Bootstrap Spillout - BSS
+                        </h1>
+                        <h4 class="my-3">
+                            Thinking outside of the box
+                        </h4>
+                        <p>
+                            Container bound content that reaches the edge of the viewport made easy
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="animated">
+            <div class="container bordered text-center">
+                <h2 class="py-3">
+                    Container
+                </h2>
+                <div class="row">
+                    <div class="col-6 outlined-inner">
+                        <p>
+                            .col-6
+                        </p>
+                    </div>
+                    <div class="spill-6-none outlined-inner" id="spillAnim">
+                        <p>
+                            .spill-6-end
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-4 text-center">
+                        <h2>
+                            What is the use-case?
+                        </h2>
+                        <p>
+                            One of the common designer tropes is to have regular content be bound within the container but to have images break out of the container and reaching the end of the screen.
+                        </p>
+                        <p>
+                            While it looks nice and helps break the monotiny of having everything centered on the screen within the container, it poses a bit of a challange on the development side.
+                        </p>
+                    </div>
+                    
+                    <div class="col-12 col-lg-4 text-center">
+                        <h2>
+                            Common solutions
+                        </h2>
+                        <p>
+                            One option is to set the spilling element absolutely within the container or a column inside the container.
+                        </p>
+                        <p>
+                            The issue with this approach is having to compensate for the fact that the absolutely placed element is no longer in the document flow and it's height does not effect the parent element.
+                        </p>
+                        <hr>
+                        <p>
+                            An another option is to us JS to add a negative margin to the desired element.
+                        </p>
+                        <p>
+                            To avoid complication and for the sake of performance it is best to keep the js visual adjustemnts to a minimum.
+                        </p>
+                        <hr>
+                        <p>
+                            One other option is to stretch the container to the desired edge of the screen but that offsets the center of the container which in turn missaligns the rest of the grid.
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-lg-4 text-center">
+                        <h2>
+                            The benefits of Boostrap-Spillout
+                        </h2>
+                        <p>
+                            BSS allows you to both keep the existing grid intact while retaining the ease of use or regular columns via classes and remaining in the flow of the document and using minimal JS.
+                        </p>
+                        <p>
+                            BSS folows Bootstrap's responsive mixin approach and can be disabled at any breakpoint.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="mb-3">
+                            How to use
+                        </h2>
+                        <p>
+                            Include the BSS scss to your main style scss after the Bootstrap scss since it uses Bootstrap's scss variables and compile it.
+                        </p>
+                        <p>
+                            Include the BSS JS to your project and add bssInit() to the top of your window.onload / document.ready function.
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center my-3">
+                        <h4>
+                            Class structure
+                        </h4>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <p>
+                            .<strong>spill</strong>-md-6-end
+                            <br><br>The main part and the starting point is <strong>'spill'</strong> which takes a similar role and function as 'col'.
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <p>
+                            .spill-<strong>md</strong>-6-end
+                            <br><br>The second part is the breakpoint designator (sm, md, lg, etc.) just like with Bootstrap.
+                            <br>If the breakpoint is not included, the element will behave the same throughout all of the breakpoints.
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <p>
+                            .spill-md-<strong>6</strong>-end
+                            <br><br>The third part is the number of columns of the regular container the spill element will take up.
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <p>
+                            .spill-md-6-<strong>end</strong>
+                            <br><br>The final part is the side designator.
+                            <br>It can be either <strong>'start'</strong>, <strong>'end'</strong> or <strong>'none'</strong>.
+                            <br>The <strong>'none'</strong> designator makes the spill element act like a regular column.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container bordered mt-5">
+                <div class="row">
+                    <div class="spill-12-start outlined-inner">
+                        <p>
+                            .spill-12-start
+                        </p>
+                    </div>
+
+                    <div class="spill-11-start outlined-inner">
+                        <p>
+                            .spill-11-start
+                        </p>
+                    </div>
+                    <div class="col-1 outlined-inner">
+                        <p>
+                            .col-1
+                        </p>
+                    </div>
+
+                    <div class="spill-10-start outlined-inner">
+                        <p>
+                            .spill-10-start
+                        </p>
+                    </div>
+                    <div class="col-2 outlined-inner">
+                        <p>
+                            .col-2
+                        </p>
+                    </div>
+
+                    <div class="spill-9-start outlined-inner">
+                        <p>
+                            .spill-9-start
+                        </p>
+                    </div>
+                    <div class="col-3 outlined-inner">
+                        <p>
+                            .col-3
+                        </p>
+                    </div>
+
+                    <div class="spill-8-start outlined-inner">
+                        <p>
+                            .spill-8-start
+                        </p>
+                    </div>
+                    <div class="col-4 outlined-inner">
+                        <p>
+                            .col-4
+                        </p>
+                    </div>
+
+                    <div class="spill-7-start outlined-inner">
+                        <p>
+                            .spill-7-start
+                        </p>
+                    </div>
+                    <div class="col-5 outlined-inner">
+                        <p>
+                            .col-5
+                        </p>
+                    </div>
+
+                    <div class="spill-6-start outlined-inner">
+                        <p>
+                            .spill-6-start
+                        </p>
+                    </div>
+                    <div class="col-6 outlined-inner">
+                        <p>
+                            .col-6
+                        </p>
+                    </div>
+
+                    <div class="spill-5-start outlined-inner">
+                        <p>
+                            .spill-5-start
+                        </p>
+                    </div>
+                    <div class="col-7 outlined-inner">
+                        <p>
+                            .col-7
+                        </p>
+                    </div>
+
+                    <div class="spill-4-start outlined-inner">
+                        <p>
+                            .spill-4-start
+                        </p>
+                    </div>
+                    <div class="col-8 outlined-inner">
+                        <p>
+                            .col-8
+                        </p>
+                    </div>
+
+                    <div class="spill-3-start outlined-inner">
+                        <p>
+                            .spill-3-start
+                        </p>
+                    </div>
+                    <div class="col-9 outlined-inner">
+                        <p>
+                            .col-9
+                        </p>
+                    </div>
+
+                    <div class="spill-2-start outlined-inner">
+                        <p>
+                            .spill-2-start
+                        </p>
+                    </div>
+                    <div class="col-10 outlined-inner">
+                        <p>
+                            .col-10
+                        </p>
+                    </div>
+
+                    <div class="spill-1-start outlined-inner">
+                        <p>
+                            .spill-1-start
+                        </p>
+                    </div>
+                    <div class="col-11 outlined-inner">
+                        <p>
+                            .col-11
+                        </p>
+                    </div>
+
+                    <div class="spill-12-end outlined-inner">
+                        <p>
+                            .spill-12-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-1 outlined-inner">
+                        <p>
+                            .col-1
+                        </p>
+                    </div>
+                    <div class="spill-11-end outlined-inner">
+                        <p>
+                            .spill-11-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-2 outlined-inner">
+                        <p>
+                            .col-2
+                        </p>
+                    </div>
+                    <div class="spill-10-end outlined-inner">
+                        <p>
+                            .spill-10-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-3 outlined-inner">
+                        <p>
+                            .col-3
+                        </p>
+                    </div>
+                    <div class="spill-9-end outlined-inner">
+                        <p>
+                            .spill-9-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-4 outlined-inner">
+                        <p>
+                            .col-4
+                        </p>
+                    </div>
+                    <div class="spill-8-end outlined-inner">
+                        <p>
+                            .spill-8-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-5 outlined-inner">
+                        <p>
+                            .col-5
+                        </p>
+                    </div>
+                    <div class="spill-7-end outlined-inner">
+                        <p>
+                            .spill-7-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-6 outlined-inner">
+                        <p>
+                            .col-6
+                        </p>
+                    </div>
+                    <div class="spill-6-end outlined-inner">
+                        <p>
+                            .spill-6-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-7 outlined-inner">
+                        <p>
+                            .col-7
+                        </p>
+                    </div>
+                    <div class="spill-5-end outlined-inner">
+                        <p>
+                            .spill-5-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-8 outlined-inner">
+                        <p>
+                            .col-8
+                        </p>
+                    </div>
+                    <div class="spill-4-end outlined-inner">
+                        <p>
+                            .spill-4-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-9 outlined-inner">
+                        <p>
+                            .col-9
+                        </p>
+                    </div>
+                    <div class="spill-3-end outlined-inner">
+                        <p>
+                            .spill-3-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-10 outlined-inner">
+                        <p>
+                            .col-10
+                        </p>
+                    </div>
+                    <div class="spill-2-end outlined-inner">
+                        <p>
+                            .spill-2-end
+                        </p>
+                    </div>
+                    
+                    <div class="col-11 outlined-inner">
+                        <p>
+                            .col-11
+                        </p>
+                    </div>
+                    <div class="spill-1-end outlined-inner">
+                        <p>
+                            .spill-1-end
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="vendor/bootstrap-spillout/bootstrap-spillout.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

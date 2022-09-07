@@ -1,0 +1,28 @@
+.hero {
+  height: 1px;
+  min-height: 100vh;
+}
+
+.bordered {
+  border: 4px dashed #c4c4c4;
+  color: #c4c4c4;
+}
+
+#spillAnim {
+  transition: 1s linear 0.5s;
+}
+
+.outlined-inner {
+  outline: 4px dashed #828282;
+  color: #828282;
+  outline-offset: -9px;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+.outlined-inner p {
+  padding: 60px 0;
+}
+
+p + p, h2 + p {
+  margin-top: 16px;
+}/*# sourceMappingURL=custom-style.css.map */

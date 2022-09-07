@@ -1,0 +1,120 @@
+:root{
+    --scrollbar-width: 0px; //set as a default/starting value, gets overwritten if a scrollbar is present
+}
+
+@for $i from 1 through $grid-columns{ //generates the spill classes for the number of the grid columns
+    
+    .spill-#{$i}-end{
+        margin-left:auto;
+        max-width:unset;
+        flex: 0 0 auto;
+        margin-right:calc((((100vw - var(--scrollbar-width)) - 100%)/2)*-1);
+        width:calc(((#{$i}/#{$grid-columns})*100%) + (((100vw - var(--scrollbar-width)) - 100%)/2) - 0.01%);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        padding-right: calc(var(--bs-gutter-x) * .5);
+
+        img{
+            width: calc(100% + var(--bs-gutter-x));
+            max-width: calc(100% + var(--bs-gutter-x));
+            margin-left: calc(var(--bs-gutter-x) * -.5);
+            margin-right: calc(var(--bs-gutter-x) * -.5);
+        }
+    }
+
+    .spill-#{$i}-start{
+        margin-right: 0;
+        max-width:unset;
+        flex: 0 0 auto;
+        margin-left:calc((((100vw - var(--scrollbar-width)) - 100%)/2)*-1);
+        width:calc(((#{$i}/#{$grid-columns})*100%) + (((100vw - var(--scrollbar-width)) - 100%)/2) - 0.01%);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        padding-right: calc(var(--bs-gutter-x) * .5);
+
+        img{
+            width: calc(100% + var(--bs-gutter-x));
+            max-width: calc(100% + var(--bs-gutter-x));
+            margin-left: calc(var(--bs-gutter-x) * -.5);
+            margin-right: calc(var(--bs-gutter-x) * -.5);
+        }
+    }
+
+    .spill-#{$i}-none{
+        max-width:unset;
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-left:0;
+        width:calc(((#{$i}/#{$grid-columns})*100%) - 0.01%);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        padding-right: calc(var(--bs-gutter-x) * .5);
+
+        img{
+            width: calc(100% + var(--bs-gutter-x));
+            max-width: calc(100% + var(--bs-gutter-x));
+            margin-left: calc(var(--bs-gutter-x) * -.5);
+            margin-right: calc(var(--bs-gutter-x) * -.5);
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints){ //same as above but for bootstrap responsive breakpoints
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+
+        @for $i from 1 through $grid-columns{
+            
+            .spill#{$infix}-#{$i}-end{
+                margin-left:auto;
+                max-width:unset;
+                flex: 0 0 auto;
+                margin-right:calc((((100vw - var(--scrollbar-width)) - 100%)/2)*-1);
+                width:calc(((#{$i}/#{$grid-columns})*100%) + (((100vw - var(--scrollbar-width)) - 100%)/2) - 0.01%);
+                padding-left: calc(var(--bs-gutter-x) * .5);
+                padding-right: calc(var(--bs-gutter-x) * .5);
+                
+                img{
+                    width: calc(100% + var(--bs-gutter-x));
+                    max-width: calc(100% + var(--bs-gutter-x));
+                    margin-left: calc(var(--bs-gutter-x) * -.5);
+                    margin-right: calc(var(--bs-gutter-x) * -.5);
+                }
+            }
+        
+            .spill#{$infix}-#{$i}-start{
+                margin-right: 0;
+                max-width:unset;
+                flex: 0 0 auto;
+                margin-left:calc((((100vw - var(--scrollbar-width)) - 100%)/2)*-1);
+                width:calc(((#{$i}/#{$grid-columns})*100%) + (((100vw - var(--scrollbar-width)) - 100%)/2) - 0.01%);
+                padding-left: calc(var(--bs-gutter-x) * .5);
+                padding-right: calc(var(--bs-gutter-x) * .5);
+
+                
+                img{
+                    width: calc(100% + var(--bs-gutter-x));
+                    max-width: calc(100% + var(--bs-gutter-x));
+                    margin-left: calc(var(--bs-gutter-x) * -.5);
+                    margin-right: calc(var(--bs-gutter-x) * -.5);
+                }
+            }
+
+            .spill#{$infix}-#{$i}-none{
+                max-width:unset;
+                margin-right: 0;
+                margin-left:0;
+                flex: 0 0 auto;
+                width:calc(((#{$i}/#{$grid-columns})*100%) - 0.01%);
+                padding-left: calc(var(--bs-gutter-x) * .5);
+                padding-right: calc(var(--bs-gutter-x) * .5);
+        
+                img{
+                    width: calc(100% + var(--bs-gutter-x));
+                    max-width: calc(100% + var(--bs-gutter-x));
+                    margin-left: calc(var(--bs-gutter-x) * -.5);
+                    margin-right: calc(var(--bs-gutter-x) * -.5);
+                }
+            }
+        }
+    }
+}
+
