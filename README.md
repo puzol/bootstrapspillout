@@ -62,3 +62,5 @@ will take up.
 - The final part is the side designator.
 It can be either 'start', 'end' or 'none'.
 The 'none' designator makes the spill element act like a regular column. 
+
+!! There is styling that makes images cover the whole element and ignore the padding. If that is not your desired effect, feel free to override it.
