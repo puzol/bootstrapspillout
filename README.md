@@ -1,5 +1,5 @@
 # bootstrapspillout
-Easy overflow of elements from inside the conainer to the edge of the window.
+Easy overflow of elements from inside the Boostrap container to the edge of the viewport.
 
 ---Bootstrap Spillout - BSS---
 
