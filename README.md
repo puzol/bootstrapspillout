@@ -5,7 +5,7 @@ Easy overflow of elements from inside the Boostrap container to the edge of the 
 
 ## Install 
 
-`npm i boostrap-spillout`
+`npm i bootstrap-spillout`
 
 Include the BSS scss to your main style scss after the Bootstrap scss since it uses Bootstrap's scss variables and compile it.
 
